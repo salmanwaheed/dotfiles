@@ -1,13 +1,14 @@
 #!/bin/bash
 
-set -eu
+set -e
 
 # brew install vim
 # sudo apt install vim
 
-$ROOT=~
-$VIM_DIR=$ROOT/.vim
-$VIM_PLUG_DIR=$VIM_DIR/autoload/plug.vim
+export VIM_DIR=$HOME/.vim
+export VIM_PLUG_DIR=$VIM_DIR/autoload/plug.vim
+export ZSHRC=$HOME/.zshrc
+export TMP_DIR=$HOME/tmp
 
 echo "installing vim..."
 
@@ -25,7 +26,7 @@ if [[ -d "$VIM_DIR" ]]; then
 
   # symbolic link
   if [[ -f "$VIM_DIR/vimrc" ]]; then
-    sudo ln -sf "$VIM_DIR/vimrc" "$ROOT/.vimrc"
+    sudo ln -sf "$VIM_DIR/vimrc" "$HOME/.vimrc"
   else
     echo "vimrc canot be found!"
     exit
@@ -50,19 +51,19 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 if [[ -d $ZSH ]]; then
   # https://github.com/dracula/zsh
-  mkdir ~/tmp
-  git clone https://github.com/dracula/zsh.git ~/tmp
-  mv ~/tmp/dracula.zsh-theme $ZSH/themes/
-  mv ~/tmp/lib $ZSH/themes/
+  mkdir $TMP_DIR
+  git clone https://github.com/dracula/zsh.git $TMP_DIR
+  mv $TMP_DIR/dracula.zsh-theme $ZSH/themes/
+  mv $TMP_DIR/lib $ZSH/themes/
 
   # add some plugins
   git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
-  sed -i 's/robbyrussell/dracula/g' ~/.zshrc
-  sed -i 's/git/git zsh-autosuggestions zsh-syntax-highlighting/' ~/.zshrc
-  sed -i 's/source $ZSH\/oh-my-zsh.sh/ZSH_DISABLE_COMPFIX=true\'$'\nsource $ZSH\\/oh-my-zsh.sh/' ~/.zshrc
-  echo 'DISABLE_AUTO_TITLE=true' >> ~/.zshrc
+  sed -i 's/robbyrussell/dracula/g' $ZSHRC
+  sed -i 's/git/git zsh-autosuggestions zsh-syntax-highlighting/' $ZSHRC
+  sed -i 's/source $ZSH\/oh-my-zsh.sh/ZSH_DISABLE_COMPFIX=true\'$'\nsource $ZSH\\/oh-my-zsh.sh/' $ZSHRC
+  echo 'DISABLE_AUTO_TITLE=true' >> $ZSHRC
 else
   echo "zsh does not install properly. reinstall it..."
   exit
@@ -76,7 +77,7 @@ chsh -s $(which zsh) && echo 'you are using zsh terminal now!'
 echo
 
 # remove tmp dir
-rm -rf ~/tmp && echo "tmp dir has been removed!"
+rm -rf $TMP_DIR && echo "tmp dir has been removed!"
 echo 
 
 # final message

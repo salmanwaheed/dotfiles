@@ -1,0 +1,152 @@
+" Disable strange Vi defaults.
+set nocompatible
+
+" Enable syntax highlighting.
+syntax on
+
+filetype off
+
+if filereadable(expand("~/.vim/vimrc.plug"))
+    source ~/.vim/vimrc.plug
+endif
+
+" Turn on filetype plugins (:help filetype-plugin).
+filetype plugin indent on
+
+" Autoindent when starting new line, or using `o` or `O`.
+set autoindent
+set smartindent
+
+" Allow backspace in insert mode.
+set backspace=indent,eol,start
+
+" Don't scan included files. The .tags file is more performant.
+set complete-=i
+
+" Use 'shiftwidth' when using `<Tab>` in front of a line.
+" By default it's used only for shift commands (`<`, `>`).
+set smarttab
+
+" Disable octal format for number processing.
+set nrformats-=octal
+
+" Enable highlighted case-insensitive incremential search.
+set incsearch
+
+" Indent using two spaces.
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" Always show window statuses, even if there's only one.
+set laststatus=2
+
+" Autocomplete commands using nice menu in place of window status.
+set wildmenu
+set wildmode=longest,list
+
+" Force utf-8 encoding
+set encoding=utf-8
+
+" Set default whitespace characters when using `:set list`
+set listchars=trail:.,tab:>-,extends:>,precedes:<,nbsp:¬
+set list
+
+" Delete comment character when joining commented lines
+set formatoptions+=j
+
+" Reload unchanged files automatically.
+set autoread
+
+" Increase history size to 1000 items.
+set history=1000
+
+" Allow for up to 50 opened tabs on Vim start.
+set tabpagemax=50
+
+" Always save upper case variables to viminfo file.
+set viminfo^=!
+
+" Disable writebackup because some tools have issues with it:
+set nowritebackup
+set nobackup
+set noundofile
+
+" Keep 8 lines above or below the cursor when scrolling.
+set scrolloff=8
+
+" Keep 15 columns next to the cursor when scrolling horizontally.
+set sidescroll=1
+set sidescrolloff=15
+
+" Hide buffers instead of asking if to save them.
+set hidden
+
+" Wrap lines by default
+set wrap
+
+" For autocompletion, complete as much as you can.
+set wildmenu
+set wildmode=longest,full
+
+" Show line numbers on the sidebar.
+set number
+
+" Disable any annoying beeps on errors.
+set noerrorbells
+set visualbell
+
+" Don't parse modelines (google "vim modeline vulnerability").
+set nomodeline
+
+" Do not fold by default. But if, do it up to 3 levels.
+set foldmethod=indent
+set foldnestmax=3
+set nofoldenable
+
+" Enable mouse for scrolling and window resizing.
+set mouse=a
+
+" Disable swap to prevent annoying messages.
+set noswapfile
+
+" Save up to 100 marks, enable capital marks.
+set viminfo='100,f1
+
+" Enable search highlighting.
+set hlsearch
+
+" Ignore case when searching.
+set ignorecase
+
+" Don't ignore case when search has capital letter
+" (although also don't ignore case by default).
+set smartcase
+
+" enable copy to clipboard
+set clipboard=unnamed
+
+set path+=**
+set completeopt=menu
+
+" Disable output, vcs, archive, rails, temp and backup files.
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*.pyc,*.pyw,*.pyo,__pycache__
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+set wildignore+=*.swp,*~,._*
+
+" Set window title by default.
+set title
+
+" Always focus on splited window.
+set splitright
+
+" Don't display the intro message on starting Vim.
+set shortmess+=I
+
+" Reduce updatetime from 4000 to 300 to avoid issues with coc.nvim
+set updatetime=300
+
+" enable shell
+set showcmd

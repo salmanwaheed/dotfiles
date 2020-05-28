@@ -1,0 +1,23 @@
+export VIM_DIR=$HOME/.vim
+export VIM_AUTOLOAD_DIR=$VIM_DIR/autoload
+export VIM_PLUG_FILE=$VIM_AUTOLOAD_DIR/plug.vim
+export ZSHRC=$HOME/.zshrc
+export TMP_DIR=$HOME/tmp
+
+command_exists() {
+  command -v "$@" >/dev/null 2>&1
+}
+
+remove_package() {
+  if command_exists "$@"; then
+    echo "removing $@..."
+    sudo apt remove --auto-remove --purge -y "$@" >/dev/null 2>&1
+  fi
+}
+
+install_package() {
+  if ! command_exists "$@"; then
+    echo "installing $@..."
+    sudo apt-get install -y "$@" >/dev/null 2>&1 && echo "$@ has installed."
+  fi
+}

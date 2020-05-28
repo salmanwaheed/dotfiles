@@ -13,12 +13,18 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # beauty terminal config
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/salmanwaheed/terminal-beauty/master/install.sh)"
+curl -OL https://github.com/salmanwaheed/terminal-beauty/archive/v1.0.tar.gz
+
+# untar
+tar -xzf v1.0.tar.gz && cd v1.0.tar.gz
+
+# install
+./install.sh
 ```
 
 **Uninstall**
 
 ```
-# remove beauty terminal config
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/salmanwaheed/terminal-beauty/master/uninstall.sh)"
+# download repo and run
+./uninstall.sh
 ```

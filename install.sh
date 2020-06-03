@@ -2,7 +2,22 @@
 
 set -e
 
-source common
+VIM_DIR=$HOME/.vim
+VIM_AUTOLOAD_DIR=$VIM_DIR/autoload
+VIM_PLUG_FILE=$VIM_AUTOLOAD_DIR/plug.vim
+ZSHRC=$HOME/.zshrc
+TMP_DIR=$HOME/tmp
+
+command_exists() {
+  command -v "$@" >/dev/null 2>&1
+}
+
+install_package() {
+  if ! command_exists "$@"; then
+    echo "installing $@..."
+    sudo apt-get install -y "$@" >/dev/null 2>&1 && echo "$@ has installed."
+  fi
+}
 
 # git section
 install_package git
@@ -12,7 +27,7 @@ install_package vim
 
 if [[ ! -f $VIM_PLUG_FILE ]]; then
     echo "installing vim plugins..."
-    sudo curl -fLo $VIM_PLUG_FILE --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim >/dev/null 2>&1
+    sudo curl -fsLo $VIM_PLUG_FILE --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim >/dev/null 2>&1
 fi
 
 if [[ -d "$VIM_DIR" ]]; then

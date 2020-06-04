@@ -8,22 +8,11 @@ VIM_PLUG_FILE=$VIM_AUTOLOAD_DIR/plug.vim
 ZSHRC=$HOME/.zshrc
 TMP_DIR=$HOME/tmp
 
-command_exists() {
-  command -v "$@" >/dev/null 2>&1
-}
-
-install_package() {
-  if ! command_exists "$@"; then
-    echo "installing $@..."
-    sudo apt-get install -y "$@" >/dev/null 2>&1 && echo "$@ has installed."
-  fi
-}
-
 # git section
-install_package git
+bash-lib ins_pkg git
 
 # vim section
-install_package vim
+bash-lib ins_pkg vim
 
 if [[ ! -f $VIM_PLUG_FILE ]]; then
     echo "installing vim plugins..."
@@ -57,7 +46,7 @@ fi
 # https://gist.github.com/dogrocker/1efb8fd9427779c827058f873b94df95
 # install zsh for linux
 # will change it later for cross platform
-install_package zsh
+bash-lib ins_pkg zsh
 
 # install oh-my-zsh
 #if [[ ! -d $ZSH ]]; then

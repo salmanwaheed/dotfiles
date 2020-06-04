@@ -8,16 +8,20 @@
 
 **Install**
 
-```
+* You must install this package first https://github.com/salmanwaheed/bash-lib
+
+```bash
+# after installed bash-lib you can run these command
+
 # Install oh-my-zsh mandatory
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # beauty terminal config
-/bin/bash -c "$(curl -fsSL "$(https://raw.githubusercontent.com/salmanwaheed/terminal-beauty/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/salmanwaheed/terminal-beauty/master/install.sh)"
 ```
 
 **Uninstall**
 
 ```
-/bin/bash -c "$(curl -fsSL "$(https://raw.githubusercontent.com/salmanwaheed/terminal-beauty/master/uninstall.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/salmanwaheed/terminal-beauty/master/uninstall.sh)"
 ```

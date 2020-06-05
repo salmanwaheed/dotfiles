@@ -26,7 +26,8 @@ if [[ -d "$VIM_DIR" ]]; then
     sudo chown -R $USER "$VIM_DIR"
 
     # copy mandatory files
-    sudo cp -run ./.vim/* "$VIM_DIR"
+    curl -fsSL https://raw.githubusercontent.com/salmanwaheed/terminal-beauty/master/.vim/vimrc -o "$VIM_DIR/vimrc"
+    curl -fsSL https://raw.githubusercontent.com/salmanwaheed/terminal-beauty/master/.vim/vimrc.plug -o "$VIM_DIR/vimrc.plug"
 
     # install if any plugin exist in vimrc.plug file
     sudo vim +PlugInstall +qall

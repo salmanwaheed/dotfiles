@@ -46,7 +46,7 @@ fi
 # https://gist.github.com/dogrocker/1efb8fd9427779c827058f873b94df95
 # install zsh for linux
 # will change it later for cross platform
-bash-lib ins_pkg zsh
+# bash-lib ins_pkg zsh
 
 # install oh-my-zsh
 #if [[ ! -d $ZSH ]]; then

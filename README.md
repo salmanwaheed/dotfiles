@@ -8,10 +8,14 @@
 
 **Install**
 
-* You must install this package first https://github.com/salmanwaheed/bash-lib
+* You must install this package first
+  * https://github.com/salmanwaheed/bash-lib
 
 ```bash
 # after installed bash-lib you can run these command
+
+# install zsh
+bash-lib ins_pkg zsh
 
 # Install oh-my-zsh mandatory
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

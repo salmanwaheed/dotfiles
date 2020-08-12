@@ -69,10 +69,13 @@ if [[ -d $ZSH ]]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH/custom/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/custom/plugins/zsh-syntax-highlighting
 
-  sed -i 's/robbyrussell/dracula/g' $ZSHRC
-  sed -i 's/git/git zsh-autosuggestions zsh-syntax-highlighting/' $ZSHRC
-  sed -i 's/source $ZSH\/oh-my-zsh.sh/ZSH_DISABLE_COMPFIX=true\'$'\nsource $ZSH\\/oh-my-zsh.sh/' $ZSHRC
+  sed -i '' 's/robbyrussell/dracula/g' $ZSHRC
+  sed -i '' 's/git/git zsh-autosuggestions zsh-syntax-highlighting/' $ZSHRC
+  sed -i '' 's/source $ZSH\/oh-my-zsh.sh/ZSH_DISABLE_COMPFIX=true\'$'\nsource $ZSH\\/oh-my-zsh.sh/' $ZSHRC
+  sed -i '' 's/# export LANG=en_US.UTF-8/export LANG=en_US.UTF-8/g' >> $ZSHRC
   echo 'DISABLE_AUTO_TITLE=true' >> $ZSHRC
+  echo 'LC_CTYPE=UTF-8' >> $ZSHRC
+  echo 'LC_ALL=' >> $ZSHRC
 else
   echo "oh-my-zsh is not installed yet."
   exit

@@ -1,5 +1,19 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'itchyny/lightline.vim'
+
+" https://github.com/junegunn/fzf.vim
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+
+" https://github.com/junegunn/vim-easy-align
+" Plug 'junegunn/vim-easy-align'
+
+" https://draculatheme.com/vim
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()

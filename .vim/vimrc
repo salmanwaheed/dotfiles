@@ -2,6 +2,7 @@
 set nocompatible
 
 " Enable syntax highlighting.
+" syntax enable
 syntax on
 
 filetype off
@@ -85,10 +86,6 @@ set hidden
 " Wrap lines by default
 set wrap
 
-" For autocompletion, complete as much as you can.
-set wildmenu
-set wildmode=longest,full
-
 " Show line numbers on the sidebar.
 set number
 
@@ -150,3 +147,12 @@ set updatetime=300
 
 " enable shell
 set showcmd
+
+" enable theme
+colorscheme dracula
+
+" NERDTree
+map <C-o> :NERDTreeToggle<CR>
+
+# remove trailing spaces
+autocmd BufWritePre * :%s/\s\+$//e

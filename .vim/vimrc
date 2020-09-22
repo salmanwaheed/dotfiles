@@ -154,5 +154,5 @@ colorscheme dracula
 " NERDTree
 map <C-o> :NERDTreeToggle<CR>
 
-# remove trailing spaces
+" remove trailing spaces
 autocmd BufWritePre * :%s/\s\+$//e

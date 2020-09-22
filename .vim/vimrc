@@ -149,7 +149,7 @@ set updatetime=300
 set showcmd
 
 " enable theme
-colorscheme dracula
+silent! colorscheme dracula
 
 " NERDTree
 map <C-o> :NERDTreeToggle<CR>

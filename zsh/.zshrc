@@ -100,9 +100,11 @@ export LC_ALL=""
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+source <(kubectl completion zsh)
 DISABLE_AUTO_TITLE=true
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/opt/ruby/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 export HOMEBREW_NO_AUTO_UPDATE=1
 autoload -Uz compinit; compinit
+source /Users/salmanwaheed/.rvm/scripts/rvm

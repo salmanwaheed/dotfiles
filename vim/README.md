@@ -4,6 +4,6 @@
 * clone repo
 * go into the directory `cd dotfiles`
 * install required packages `sudo apt update && sudo apt install -y vim git zsh`
-* copy files `cp -r ./vim/* $HOME/.vim/`
+* copy files `sudo cp -r ./vim/* $HOME/.vim/`
 * change onwership if its denied `sudo chown -R $USER:$USER $HOME/.vim`
 * to install plugins `sudo vim +PlugInstall +qall`

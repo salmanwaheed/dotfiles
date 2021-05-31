@@ -9,5 +9,6 @@
   * `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH/custom/plugins/zsh-syntax-highlighting`
 * clone repo
 * go into the directory `cd dotfiles`
-* copy files `cp -r ./.zshrc $HOME/.zshrc`
+* copy files `sudo cp -r ./zsh/.zshrc $HOME/.zshrc`
+* restart your terminal
 * set zsh as default terminal `chsh -s $(which zsh)`

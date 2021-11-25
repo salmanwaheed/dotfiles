@@ -101,10 +101,13 @@ export LC_ALL=""
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
 DISABLE_AUTO_TITLE=true
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/opt/ruby/bin:$PATH"
+export GPG_TTY=$TTY
+export PATH="/usr/local/sbin:/usr/local/bin:$HOME/bin:/usr/local/opt/ruby/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
 export HOMEBREW_NO_AUTO_UPDATE=1
-autoload -Uz compinit; compinit
-source /Users/salmanwaheed/.rvm/scripts/rvm
+autoload -Uz compinit
+compinit
+#source $HOME/.rvm/scripts/rvm
+#complete -C /usr/local/bin/terraform terraform

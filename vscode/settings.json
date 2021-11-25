@@ -1,0 +1,36 @@
+{
+  "workbench.startupEditor": "none",
+  // "editor.fontSize": 13,
+  "editor.wordWrap": "on",
+  "window.zoomLevel": 1,
+  "update.mode": "none",
+  "search.followSymlinks": false,
+  "extensions.autoUpdate": false,
+  "git.path": null,
+  "git.autofetch": false,
+  "git.autoRepositoryDetection": false,
+  "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/node_modules/**": true
+  },
+  "git.enabled": false,
+  "extensions.autoCheckUpdates": false,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "trailing-spaces.trimOnSave": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.github": true,
+    "**/.jekyll-*": true,
+    "**/.netlify": true
+  },
+  "search.exclude": {
+    "**/.git": true
+  }
+  // "[git-commit]": {
+
+  //     "editor.rulers": [
+  //         72
+  //     ]
+  // }
+}

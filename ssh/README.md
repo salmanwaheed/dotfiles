@@ -4,5 +4,5 @@
 1. Run the following commands to setup.
 
 ```sh
-ln -sf ~/Desktop/dotfiles/ssh/config ~/.ssh/config
+cp ~/Desktop/dotfiles/ssh/config ~/.ssh/config
 ```

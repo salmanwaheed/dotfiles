@@ -10,7 +10,7 @@ if ! [[ -d "$HOME/.ssh" ]]; then
   # ssh-add ~/.ssh/id_rsa
   # cat ~/.ssh/id_rsa.pub
   # Github.com > Profile > Settings > SSH and GPG keys > Add SSH key
-  # 
+  #
   # git config --global user.email "you@example.com"
   # git config --global user.name "Your Name"
 fi
@@ -73,15 +73,72 @@ if ! [[ `which mysql` ]]; then
   #
   # CREATE USER 'salman'@'localhost' IDENTIFIED BY 'password';
   # GRANT ALL PRIVILEGES ON *.* TO 'salman'@'localhost' WITH GRANT OPTION;
-  # 
+  #
   # exit
   #
   # sudo systemctl status mysql.service
   # sudo mysqladmin -u root version
 fi
 
-if ! [[ `google-chrome` ]]; then
+if ! [[ `which google-chrome` ]]; then
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  sudo apt install ./google-chrome-stable_current_amd64.deb
+  sudo apt install -y ./google-chrome-stable_current_amd64.deb
   sudo rm -rf ./google-chrome-stable_current_amd64.deb
 fi
+
+if ! [[ `which openvpn` ]]; then
+  # version 2.0
+  sudo apt-get install openvpn
+  # https://99.80.209.238:943/admin/
+  # https://99.80.209.238:943/?src=connect
+  # click on Yourself (autologin profile) button
+  # and download client.ovpn file
+  # and run the folowing command
+  # sudo openvpn --config /path/to/client.ovpn --auth-nocache --daemon
+
+  # version 3.0
+  # https://openvpn.net/cloud-docs/openvpn-3-client-for-linux/
+  # curl -fsSL https://swupdate.openvpn.net/repos/openvpn-repo-pkg-key.pub | sudo apt-key add -
+  # echo "deb [arch=amd64] https://swupdate.openvpn.net/community/openvpn3/repos $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/openvpn3.list
+  # sudo apt update
+  # sudo apt install openvpn3
+fi
+
+if ! [[ `which zoom` ]]; then
+  wget https://zoom.us/client/latest/zoom_amd64.deb
+  sudo apt install -y ./zoom_amd64.deb
+  sudo rm -rf ./zoom_amd64.deb
+  # sudo apt remove zoom
+fi
+
+if ! [[ `which dbeaver` ]]; then
+  wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+  sudo apt install -y ./dbeaver-ce_latest_amd64.deb
+  sudo rm -rf ./dbeaver-ce_latest_amd64.deb
+  # sudo apt remove dbeaver
+fi
+
+if ! [[ `which go` ]]; then
+  wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+  export PATH=$PATH:/usr/local/go/bin
+  # restart terminal before running the following command
+  go version
+fi
+
+if ! [[ `which aws` ]]; then
+  cd ~/Desktop
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  unzip ./awscliv2.zip
+  sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
+  rm -f ./awscliv2.zip ./aws
+
+  # aws configure sso
+  # SSO start URL [None]: https://yallacompare.awsapps.com/start
+  # SSO Region [None]: eu-west-1
+  # CLI profile name [YOUR_ROLE-ACCOUNT_NUMBER]: default
+fi
+
+
+sudo add-apt-repository ppa:tomtomtom/woeusb
+sudo apt install woeusb woeusb-frontend-wxgtk
+sudo add-apt-repository --remove ppa:tomtomtom/woeusb

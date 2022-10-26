@@ -138,7 +138,56 @@ if ! [[ `which aws` ]]; then
   # CLI profile name [YOUR_ROLE-ACCOUNT_NUMBER]: default
 fi
 
+mkdir robo3t
+wget -q https://github.com/Studio3T/robomongo/releases/download/v1.4.4/robo3t-1.4.4-linux-x86_64-e6ac9ec.tar.gz -P ./robo3t
+tar -xzf ./robo3t/robo3t-1.4.4-linux-x86_64-e6ac9ec.tar.gz -C ./robo3t --strip-components=1
+./studio-3t-linux-x64.sh
+
+sudo snap install robo3t-snap
+
+# https://www.linode.com/docs/guides/install-and-configure-redis-on-centos-7/
+
+mkdir redis-server
+wget -q https://download.redis.io/releases/redis-3.2.8.tar.gz -P ./redis-server
+tar -xzf ./redis-server/redis-3.2.8.tar.gz -C ./redis-server --strip-components=1
+cd redis-server
+make
+
+
+sudo yum install epel-release
+sudo yum update
+sudo yum install redis
+sudo systemctl start redis
+sudo systemctl enable redis
+
+
+
+sudo yum install -y amazon-linux-extras
+sudo amazon-linux-extras install java-openjdk11
+sudo yum install java-1.8.0-openjdk
+sudo yum install java-1.8.0-openjdk-devel
+sudo amazon-linux-extras install redis6
+
+redis-server 0.0.0.0:6379
+redis-server --port 6379 --replicaof 0.0.0.0 6379
+
+
 
 sudo add-apt-repository ppa:tomtomtom/woeusb
 sudo apt install woeusb woeusb-frontend-wxgtk
 sudo add-apt-repository --remove ppa:tomtomtom/woeusb
+
+
+
+
+
+sudo yum update -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum upgrade
+sudo amazon-linux-extras install java-openjdk11 -y
+sudo yum install jenkins -y
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+

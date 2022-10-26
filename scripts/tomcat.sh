@@ -18,7 +18,18 @@ if [[ $PLATFORM == "centos" ]]; then
   # for CentOS
   JAVAC_PATH=/usr/lib/jvm/java-11-openjdk-11.0.14.1.1-1.el7_9.x86_64
   # sudo yum update -y
+  # sudo amazon-linux-extras install -y java-openjdk11
   # sudo yum install -y java-11-openjdk java-11-openjdk-devel wget
+  # sudo yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+  # sudo yum install tomcat-native
+  # sudo apt install libtcnative-1
+
+  # sudo yum update --security -y
+  # sudo yum autoremove
+  # sudo yum clean all
+
+  # sudo yum install -y glibc-langpack-en
+  # package-cleanup --dupes
 else
   # for debian
   JAVAC_PATH=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
@@ -43,6 +54,7 @@ else
 fi
 
 if ! [[ -f "$TOMCAT_PACKAGE_PATH" ]] && ! [[ -d "$TOMCAT_DIR" ]]; then
+  # sudo wget -q https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78.tar.gz -P ~/tomcat
   echo "-- Downloading $TOMCAT_PACKAGE_PATH ...." \
     && sudo wget -q https://dlcdn.apache.org/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/$TOMCAT_PACKAGE -P $MAIN_DIR \
     && echo "--- Downloaded!"

@@ -32,6 +32,6 @@ ln -sf ~/Desktop/dotfiles/zsh/.zshrc ~/.zshrc
 
 # Set zsh as your default terminal
 chsh -s $(which zsh)
-```
 
-Don't forget to restart your terminal.
+sudo reboot
+```

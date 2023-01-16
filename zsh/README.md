@@ -16,7 +16,7 @@ brew install zsh
 
 ```sh
 # Install oh-my-zsh package
-sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Install autocomplete.
 # Full details are here: https://gist.github.com/dogrocker/1efb8fd9427779c827058f873b94df95

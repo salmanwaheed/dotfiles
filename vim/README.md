@@ -3,7 +3,7 @@
 **Linux (Debian, Ubuntu, Mint)**
 ```bash
 sudo apt update
-sudo apt install -y vim curl
+sudo apt install -y vim curl git
 ```
 
 **MacOSx** _(don't forget to install [Homebrew](https://brew.sh/) if you don't have one)_
